@@ -16,3 +16,5 @@ var containsDuplicate = function(nums) {
 };
 // @lc code=end
 
+// Time Complexity: O(n) — The function needs to traverse the array once to build the set.
+// Space Complexity: O(n) — The function may store up to n elements in the set.
