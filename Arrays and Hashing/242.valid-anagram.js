@@ -20,5 +20,5 @@ var isAnagram = function(s, t) {
 };
 // @lc code=end
 
-// Time Complexity: O(n log n) — Dominated by the sorting operation for each string.
-// Space Complexity: O(n) — Due to the space needed to store the split arrays.
+// Time O(n log n) — Dominated by the sorting operation for each string.
+// Space O(n) — Due to the space needed to store the split arrays.
