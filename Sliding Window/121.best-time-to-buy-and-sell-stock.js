@@ -6,10 +6,13 @@
 
 // @lc code=start
 /**
+ * Time O(n) to traverse prices array
+ * Space O(1) to store pointers and maxProfit
+ *
  * @param {number[]} prices
  * @return {number}
  */
-var maxProfit = function(prices) {
+var maxProfit = function (prices) {
   let [buy, sell, maxProfit] = [0, 1, 0];
 
   while (sell < prices.length) {
@@ -25,6 +28,3 @@ var maxProfit = function(prices) {
   return maxProfit;
 };
 // @lc code=end
-
-// Time O(n) to traverse prices array
-// Space O(1) to store pointers and maxProfit

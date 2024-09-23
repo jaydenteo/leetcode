@@ -14,6 +14,10 @@
  */
 
 /**
+ * Hashset
+ * Time O(n) to traverse list
+ * Space O(n) to add to hashset
+ *
  * @param {ListNode} head
  * @return {boolean}
  */
@@ -32,11 +36,13 @@ var hasCycle = function (head) {
 };
 // @lc code=end
 
-// Time O(n) to traverse list
-// Space O(n) to add to hashset
-
-// Time O(n) to traverse list
-// Space O(1) to store pointers
+/**
+ * Time O(n) to traverse list
+ * Space O(1) to store pointers
+ *
+ * @param {ListNode} head
+ * @return {boolean}
+ */
 var hasCycle = function (head) {
   let [fast, slow] = [head, head];
 

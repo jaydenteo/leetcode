@@ -13,41 +13,43 @@
  * }
  */
 /**
+ * Iterative (Two-Pointers)
+ * Time O(n) to traverse linked list
+ * Space O(1) to store two pointers
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function(head) {
+var reverseList = function (head) {
   let [prev, curr] = [null, head];
 
   while (curr) {
-      let next = curr.next;
-      curr.next = prev;
+    let stub = curr.next;
+    curr.next = prev;
 
-      prev = curr;
-      curr = next;
+    prev = curr;
+    curr = stub;
   }
 
   return prev;
 };
 // @lc code=end
 
-// Iterative solution above
-// Time O(n) to traverse linked list
-// Space O(1) to store two pointers
-
-// Recursive solution below
-// Time O(n) each node in linked list is visited once
-// Space O(n) recursive call stack grows as deep as the number of nodes
-
-var reverseList = function(head) {
+/**
+ * Recursive
+ * Time O(n) each node in linked list is visited once
+ * Space O(n) recursive call stack grows as deep as the number of nodes
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var reverseList = function (head) {
   // Base Case
-  if (!head || !head.next) return null;
+  if (!head || !head.next) return head;
 
   // Recursive Case
-  const reversed = reverseList(head.next);
+  const reversedListHead = reverseList(head.next);
 
   // Combine Result
   head.next.next = head;
-  head.next = null
-  return reversed;
+  head.next = null;
+  return reversedListHead;
 };
