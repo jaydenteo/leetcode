@@ -6,21 +6,40 @@
 
 // @lc code=start
 /**
+ * Hashmap
+ * Time O(n) to traverse nums array
+ * Space O(n) to add to hashmap
+ *
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(nums, target) {
+var twoSum = function (nums, target) {
   const numsMap = new Map();
   for (let i = 0; i < nums.length; i++) {
-      const first = target - nums[i];
+    const diff = target - nums[i];
 
-      if (numsMap.has(first)) return [numsMap.get(first), i];
+    if (numsMap.has(diff)) return [numsMap.get(diff), i];
 
-      numsMap.set(nums[i], i);
+    numsMap.set(nums[i], i);
   }
 };
 // @lc code=end
 
-// Time O(N) | Space O(N)
-// From adding to hash map
+/**
+ * Brute Force
+ *
+ * Time O(n^2) due to traversing nested loops
+ * Space O(1)
+ *
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (nums, target) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] + nums[j] === target) return [i, j];
+    }
+  }
+};

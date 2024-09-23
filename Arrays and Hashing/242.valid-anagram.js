@@ -6,7 +6,7 @@
 
 // @lc code=start
 /**
- * Sorting Method
+ * Sorting
  * Time O(n log n) to sort each string.
  * Space O(n) due to the space needed to store the split arrays
  *
@@ -25,7 +25,7 @@ var isAnagram = function (s, t) {
 // @lc code=end
 
 /**
- * HashMap Method
+ * HashMap
  * Time O(s + t) to iterate through both strings
  * Space O(s + t) for hash maps of both s and t
  *
