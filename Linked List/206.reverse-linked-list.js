@@ -28,6 +28,7 @@ var reverseList = function (head) {
 
     prev = curr;
     curr = stub;
+    // [curr.next, prev, curr] = [prev, curr, curr.next]; // One line solution cool :)
   }
 
   return prev;
