@@ -14,11 +14,34 @@
  * }
  */
 /**
+ * Recursive DFS
+ * Time O(n)
+ * Space O(h)
+ *
  * @param {TreeNode} root
  * @return {number}
  */
-var diameterOfBinaryTree = function(root) {
-    
+var diameterOfBinaryTree = function (root) {
+  let maxDiameter = 0;
+
+  const calculateHeight = (node) => {
+    // Base case
+    if (node === null) return 0;
+
+    // Recursive function
+    const leftHeight = calculateHeight(node.left);
+    const rightHeight = calculateHeight(node.right);
+
+    // Combine results
+    const currentDiameter = leftHeight + rightHeight;
+
+    maxDiameter = Math.max(maxDiameter, currentDiameter);
+
+    return 1 + Math.max(leftHeight, rightHeight);
+  };
+
+  calculateHeight(root);
+
+  return maxDiameter;
 };
 // @lc code=end
-
