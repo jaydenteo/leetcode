@@ -14,11 +14,30 @@
  * }
  */
 /**
+ * Time O(n) since each node is visited once
+ * Space O(h) due to recursive stack
+ *
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isBalanced = function(root) {
-    
+var isBalanced = function (root) {
+  let isBalanced = true;
+
+  const dfs = (root) => {
+    // Base case
+    if (!root) return 0;
+
+    // Recursive
+    const leftHeight = dfs(root.left);
+    const rightHeight = dfs(root.right);
+
+    // Combine results
+    if (Math.abs(leftHeight - rightHeight) > 1) isBalanced = false;
+
+    return 1 + Math.max(leftHeight, rightHeight);
+  };
+
+  dfs(root);
+  return isBalanced;
 };
 // @lc code=end
-
