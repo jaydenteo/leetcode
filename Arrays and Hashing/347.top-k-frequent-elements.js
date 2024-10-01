@@ -27,3 +27,33 @@ var topKFrequent = function (nums, k) {
     .slice(0, k);
 };
 // @lc code=end
+
+/**
+ * Bucket Sort
+ * Time O(n) to traverse nums, freqMap and buckets
+ * Space O(n) to store freqMap and buckets
+ *
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number[]}
+ */
+var topKFrequent = function (nums, k) {
+  const freqMap = new Map();
+  const buckets = []; // Frequency buckets
+  const result = [];
+
+  for (let num of nums) {
+    freqMap.set(num, (freqMap.get(num) || 0) + 1);
+  }
+
+  for (let [num, freq] of freqMap) {
+    if (!buckets[freq]) buckets[freq] = []; // Initialise bucket if empty
+    buckets[freq].push(num);
+  }
+
+  for (let i = buckets.length - 1; i >= 0 && result.length < k; i--) {
+    if (buckets[i]) result.push(...buckets[i]);
+  }
+
+  return result.slice(0, k);
+};
